@@ -56,7 +56,8 @@ class BlenderMCPServer:
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             self.socket.bind((self.host, self.port))
-            self.socket.listen(1)
+            # Increased backlog from 1 to 5 to handle multiple pending connections
+            self.socket.listen(5)
 
             # Start server thread
             self.server_thread = threading.Thread(target=self._server_loop)
@@ -103,5 +104,3 @@ class BlenderMCPServer:
                     client, address = self.socket.accept()
                     print(f"Connected to client: {address}")
 
-                    # Handle client in a separate thread
-                    client_thread = thr
