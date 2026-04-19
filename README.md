@@ -75,10 +75,6 @@ $userPath = [Environment]::GetEnvironmentVariable("Path", "User")
 [Environment]::SetEnvironmentVariable("Path", "$userPath;$localBin", "User")
 ```
 
-Otherwise installation instructions are on their website: [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
+Otherwise installation instructions are on their website: [Install uv](https://docs.astral.sh/uv/getting-started/installation)
 
-**⚠️ Do not proceed before installing UV**
-
-### Environment Variables
-
-The following environment variables can be used to configure the Blend
+> **Tip (Windows):** After running the path update above, fully quit and relaunch Claude Desktop — not just reload. I missed this and spent 20 minutes debugging a "uv not found" error.
